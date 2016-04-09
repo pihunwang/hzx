@@ -16,6 +16,13 @@ content : String
 image : String
 createTime : String
 ```
+####Message
+```
+fromId : String
+toId : String
+content : String
+createTime : String
+```
 ###所有返回值格式均为如下Json格式
 ```
 {"code":0,"data":""}
@@ -95,4 +102,20 @@ createTime : String
 返回
 	BlogList
 ```
-
+###Message模块
+####1.发送小纸条
+```
+参数
+	fromId
+	toId
+	content
+返回
+	Message
+```
+####2.拉取小纸条
+```
+参数
+	funId
+返回
+	MessageList（按时间从近到远排序）
+```

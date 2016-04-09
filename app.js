@@ -4,8 +4,11 @@ var mongoose = require("mongoose");
 var fs = require("fs");
 var formidable = require("formidable");
 var app = express();
+
+//route.js
 var routeUser = require("./route/routeUser.js")
 var routeBlog = require("./route/routeBlog.js")
+var routeMessage = require("./route/routeMessage.js")
 
 //端口
 var port = process.env.PORT || 1234 
@@ -55,4 +58,13 @@ app.all('/getBlogList',function(req,res){
 
 app.all('/getUserBlogList',function(req,res){
 	routeBlog.getUserBlogList(req,res)
+})
+
+//routeMessage
+app.all('/sendMessage',function(req,res){
+	routeMessage.sendMessage(req,res)
+})
+
+app.all('/receiveMessage',function(req,res){
+	routeMessage.receiveMessage(req,res)
 })

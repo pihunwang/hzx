@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var fs = require("fs");
 var formidable = require("formidable");
-var date = new Date();
 
 //model
 var User = require('../models/user')
@@ -18,6 +17,7 @@ function addBlogPic(req,res){
 		for(var key in files){
 			var file = files[key];
 			var funId = fields['funId'];
+			var date = new Date();
 			var fName = funId + date.getTime();
 			switch(file.type){
 				case "image/jpeg":
