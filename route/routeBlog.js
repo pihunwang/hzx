@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var fs = require("fs");
 var formidable = require("formidable");
+var date = new Date();
 
 //model
 var User = require('../models/user')
@@ -11,13 +12,13 @@ var port = process.env.PORT || 1234
 
 //route
 function addBlogPic(req,res){
-	var form = new formidable.http.IncomingForm();
+	var form = new formidable.IncomingForm();
 	form.uploadDir = "./public/temp";
 	form.parse(req,function(error,fields,files){
 		for(var key in files){
 			var file = files[key];
 			var funId = fields['funId'];
-			var fName = funId;
+			var fName = funId + date.getTime();
 			switch(file.type){
 				case "image/jpeg":
 					fName = fName + ".jpg";
@@ -30,7 +31,7 @@ function addBlogPic(req,res){
 					break;
 			}
 			var uploadDir = "./public/blogImage/" + fName;
-			fs.rename(file.path,uploadDir,function(Dir){
+			fs.rename(file.path,uploadDir,function(err){
 				if(err){
 					res.json(Response(1,""));
 					res.end();
@@ -51,9 +52,9 @@ function addBlog(req,res){
 		funId : req.param('funId'),
 		content : req.param('content'),
 		image : req.param('image'),
-		zanCount : 0
+		createTime : date.getTime()
 	})
-	Blog.save(function(error,blog){
+	_blog.save(function(error,blog){
 		if(error){
 			res.json(Response(1,""));
 			res.end();
@@ -65,5 +66,35 @@ function addBlog(req,res){
 	})
 }
 
+function getBlogList(req,res){
+	var lastId = req.param('lastId')
+	var count = req.param('count')
+	Blog.findByPage(lastId,count,function(err,cots){
+		if(err){
+			res.json(Response(1,""))
+			res.end()
+		}else{
+			res.json(Response(0,cots))
+			res.end()
+		}
+	})
+}
+
+function getUserBlogList(req,res){
+	var funId = req.param('funId')
+	Blog.findByUser(funId,function(err,cots){
+		if(err){
+			res.json(Response(1,""))
+			res.end()
+		}else{
+			res.json(Response(0,cots))
+			res.end()
+		}
+	})
+}
+
+
 exports.addBlogPic = addBlogPic
 exports.addBlog = addBlog
+exports.getBlogList = getBlogList
+exports.getUserBlogList = getUserBlogList

@@ -29,7 +29,7 @@ app.all('/register',function(req,res){
 })
 
 app.all('/getUserDetail',function(req,res){
-	routeUser.getUserDetail(req,res)
+	routeUser.getUserDetailC(req,res)
 })
 
 app.post('/headImage',function(req,res){
@@ -47,4 +47,12 @@ app.post('/addBlogPic',function(req,res){
 
 app.all('/addBlog',function(req,res){
 	routeBlog.addBlog(req,res)
+})
+
+app.all('/getBlogList',function(req,res){
+	routeBlog.getBlogList(req,res)
+})
+
+app.all('/getUserBlogList',function(req,res){
+	routeBlog.getUserBlogList(req,res)
 })

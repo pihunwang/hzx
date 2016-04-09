@@ -1,5 +1,5 @@
-var mongoogse = require("mongoogse")
+var mongoogse = require("mongoose")
 var BlogSchema = require("../schemas/blog")
-var Blog = BlogSchema.model('Blog',BlogSchema)
+var Blog = mongoogse.model('Blog',BlogSchema)
 
 module.exports = Blog
