@@ -125,7 +125,7 @@ zanCount : String
 返回
 	MessageList（按时间从近到远排序）
 ```
-###女神榜模块
+###Goddess模块
 ####1.上传女神照片
 ```
 参数
