@@ -29,6 +29,10 @@ imageUrl : String
 name : String
 zanCount : String
 ```
+###接口统一前缀（如http://ytying.duapp.com/login）
+```
+ytying.duapp.com
+```
 ###所有返回值格式均为如下Json格式
 ```
 {"code":0,"data":""}

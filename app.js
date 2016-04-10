@@ -13,9 +13,10 @@ var routeGoddess = require("./route/routeGoddess.js")
 
 //端口
 var port = process.env.PORT || 1234 
+var url = '127.0.0.1'
 
 //连接mongo数据库
-mongoose.connect('mongodb://127.0.0.1/hzx');
+mongoose.connect('mongodb://' + url + '/hzx');
 
 app.listen(port);
 
