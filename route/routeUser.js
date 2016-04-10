@@ -120,6 +120,7 @@ function headImage(req,res){
 								res.end();
 							}else{
 								var _user = new User({
+									_id : user._id,
 									funId : user.funId,
 									password : user.password,
 									name : user.name,
@@ -188,6 +189,7 @@ function backImage(req,res){
 								res.end();
 							}else{
 								var _user = new User({
+									_id : user._id,
 									funId : user.funId,
 									password : user.password,
 									name : user.name,

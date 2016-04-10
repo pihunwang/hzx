@@ -9,6 +9,7 @@ var app = express();
 var routeUser = require("./route/routeUser.js")
 var routeBlog = require("./route/routeBlog.js")
 var routeMessage = require("./route/routeMessage.js")
+var routeGoddess = require("./route/routeGoddess.js")
 
 //端口
 var port = process.env.PORT || 1234 
@@ -67,4 +68,21 @@ app.all('/sendMessage',function(req,res){
 
 app.all('/receiveMessage',function(req,res){
 	routeMessage.receiveMessage(req,res)
+})
+
+//routeGoddess
+app.all('/getGoddessList',function(req,res){
+	routeGoddess.getGoddessList(req,res)
+})
+
+app.all('/addGoddessPic',function(req,res){
+	routeGoddess.addGoddessPic(req,res)
+})
+
+app.all('/addGoddess',function(req,res){
+	routeGoddess.addGoddess(req,res)
+})
+
+app.all('/zanGoddess',function(req,res){
+	routeGoddess.zanGoddess(req,res)
 })

@@ -8,6 +8,7 @@ var Blog = require("../models/blog")
 var Response = require('../models/Response')
 
 var port = process.env.PORT || 1234 
+var url = '127.0.0.1'
 
 //route
 function addBlogPic(req,res){
@@ -36,7 +37,7 @@ function addBlogPic(req,res){
 					res.json(Response(1,""));
 					res.end();
 				}else{
-					var dir = "http://127.0.0.1:" + port + "/blogImage/" + fName;
+					var dir = "http://" + url + ":" + port + "/blogImage/" + fName;
 					var response = Response(0,dir);
 					res.json(response);
 					res.end();

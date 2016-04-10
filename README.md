@@ -23,6 +23,12 @@ toId : String
 content : String
 createTime : String
 ```
+####Goddess
+```
+imageUrl : String
+name : String
+zanCount : String
+```
 ###所有返回值格式均为如下Json格式
 ```
 {"code":0,"data":""}
@@ -76,7 +82,7 @@ createTime : String
 	funId
 	image
 返回
-	url : String
+	imageUrl : String
 ```
 ####2.上传微博
 ```
@@ -118,4 +124,36 @@ createTime : String
 	funId
 返回
 	MessageList（按时间从近到远排序）
+```
+###女神榜模块
+####1.上传女神照片
+```
+参数
+	funId
+	image
+返回
+	imageUrl : String
+```
+####2.上传女神资料
+```
+参数
+	imageUrl
+	name
+返回
+	Goddess
+```
+####3.获取所有女神照片
+```
+参数
+	无
+返回
+	GoddessList
+```
+####4.给女神点赞
+```
+参数
+	goddessId
+	funId
+返回
+	0
 ```
