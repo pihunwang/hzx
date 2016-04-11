@@ -80,7 +80,7 @@ ytying.duapp.com
 	0
 ```
 ###Blog模块
-####1.上传微博图片
+####1.上传微博图片addBlogPic
 ```
 参数
 	funId
@@ -88,7 +88,7 @@ ytying.duapp.com
 返回
 	imageUrl : String
 ```
-####2.上传微博
+####2.上传微博addBlog
 ```
 参数
 	funId
@@ -97,7 +97,7 @@ ytying.duapp.com
 返回
 	0
 ```
-####3.拉取所有微博（分页）
+####3.拉取所有微博（分页）getBlogList
 ```
 参数
 	lastId（0代表从头开始，其他的给最后一个BlogId）
@@ -105,7 +105,7 @@ ytying.duapp.com
 返回
 	BlogList
 ```
-####4.拉取一个用户所有微博
+####4.拉取一个用户所有微博getUserBlogList
 ```
 参数
 	funId
@@ -113,7 +113,7 @@ ytying.duapp.com
 	BlogList
 ```
 ###Message模块
-####1.发送小纸条
+####1.发送小纸条sendMessage
 ```
 参数
 	fromId
@@ -122,7 +122,7 @@ ytying.duapp.com
 返回
 	Message
 ```
-####2.拉取小纸条
+####2.拉取小纸条receiveMessage
 ```
 参数
 	funId
@@ -130,7 +130,7 @@ ytying.duapp.com
 	MessageList（按时间从近到远排序）
 ```
 ###Goddess模块
-####1.上传女神照片
+####1.上传女神照片addGoddessPic
 ```
 参数
 	funId
@@ -138,7 +138,7 @@ ytying.duapp.com
 返回
 	imageUrl : String
 ```
-####2.上传女神资料
+####2.上传女神资料addGoddess
 ```
 参数
 	imageUrl
@@ -146,14 +146,14 @@ ytying.duapp.com
 返回
 	Goddess
 ```
-####3.获取所有女神照片
+####3.获取所有女神照片getGoddessList
 ```
 参数
 	无
 返回
 	GoddessList
 ```
-####4.给女神点赞
+####4.给女神点赞zanGoddess
 ```
 参数
 	goddessId

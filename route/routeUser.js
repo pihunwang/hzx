@@ -12,6 +12,11 @@ var port = process.env.PORT || 1234
 function login(req,res){
 	var funId = req.param('funId');
 	var password = req.param('password');
+	if(funId == undefined || password == undefined){
+		res.json(Response(1,""))
+		res.end()
+		return;
+	}
 	User.findByFunId(funId,function(err,user){
 		if(err){
 			var response = Response(1,"");
