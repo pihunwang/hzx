@@ -29,7 +29,7 @@ imageUrl : String
 name : String
 zanCount : String
 ```
-###接口统一前缀（如http://ytying.duapp.com/login）
+###接口统一前缀（如http://172.19.199.205:1234/login）
 ```
 ytying.duapp.com
 ```

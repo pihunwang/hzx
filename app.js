@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 var fs = require("fs");
 var formidable = require("formidable");
 var app = express();
+var bodyParser = require('body-parser')
 
 //route.js
 var routeUser = require("./route/routeUser.js")
@@ -24,6 +25,9 @@ console.log("hzx server started on port " + port);
 
 app.use(express.static('public'));
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.all('*',function(req,res,next){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -43,7 +47,7 @@ app.all('/register',function(req,res){
 })
 
 app.all('/getUserDetail',function(req,res){
-	routeUser.getUserDetailC(req,res)
+	routeUser.getUserDetail(req,res)
 })
 
 app.post('/headImage',function(req,res){

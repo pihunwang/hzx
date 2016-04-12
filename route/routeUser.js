@@ -23,7 +23,7 @@ function login(req,res){
 			res.json(response);
 			res.end();
 		}else{
-			if(user.password === password){
+			if(user.password == password){
 				var response = Response(0,user);
 				res.json(response);
 				res.end();
